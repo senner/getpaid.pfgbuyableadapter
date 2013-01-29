@@ -96,10 +96,17 @@ class BuyableFormAdapter(FormActionAdapter):
         nitem.uid = iid
 
         # copy over information regarding the item
-        nitem.name = "Supplemental Pharmacy Application"
-        nitem.description = "Supplemental Pharmacy Application 2011"
+        #this is to name the checkout line item with the name of the buyable form content
+        nitem.name = self.title
+        nitem.description = self.description
+
         nitem.cost = float(self.price)
-        nitem.quantity = 1
+        #let the user add a form field with the id 'quantity' otherwise set it to 1 as before 
+        d = dict(data)
+        if 'quantity' in d:
+                nitem.quantity = int(d['quantity'])
+        else:
+                nitem.quantity = 1
         nitem.product_code = nitem.item_id
         
         nitem.data = data
