@@ -4,8 +4,13 @@
 from zope.interface import implements
 from zope.component import getUtility
 
-from zope.app.component.hooks import getSite
-
+try:
+ # Plone < 4.3
+ from zope.app.component.hooks import setSite
+except ImportError:
+ # Plone >= 4.3
+ from zope.component.hooks import setSite  # NOQA 
+ 
 from getpaid.core.interfaces import IShoppingCartUtility
 from getpaid.core.item import PayableLineItem
 
