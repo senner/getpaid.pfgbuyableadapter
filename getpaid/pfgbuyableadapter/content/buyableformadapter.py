@@ -101,13 +101,15 @@ class BuyableFormAdapter(FormActionAdapter):
         nitem.uid = iid
 
         # copy over information regarding the item
-        nitem.name = data[title]
-        nitem.description = data[description]
+        nitem.name = self.title
+        nitem.description = self.description
         nitem.cost = float(self.price)
+	nitem.quantity = 1
 	try:
-	     nitem.quanity = int(data[quantity])
- 	except:
-             nitem.quantity = 1
+	     if int(data[quantity]) is not None:	    
+	          nitem.quanity = int(data[quantity])
+	except:
+	     nitem.quantity = 1
         nitem.product_code = nitem.item_id
         
         nitem.data = data
