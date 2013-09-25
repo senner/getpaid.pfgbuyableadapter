@@ -1,3 +1,4 @@
+
 Changelog
 =========
 
@@ -6,3 +7,5 @@ Changelog
 
 - Created recipe with ZopeSkel
   [""]
+
+-Fixed for plone 4.3 and fixed naming of form /title/name/description [senner]
