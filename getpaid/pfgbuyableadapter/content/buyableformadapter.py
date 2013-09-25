@@ -105,15 +105,15 @@ class BuyableFormAdapter(FormActionAdapter):
         nitem.description = self.description
         nitem.cost = float(self.price)
 	nitem.quantity = 1
-	try:
-	     if int(data[quantity]) is not None:	    
-	          nitem.quanity = int(data[quantity])
-	except:
+
+	if quantity in data:	    
+	     nitem.quanity = int(data['quantity'])
+	else:
 	     nitem.quantity = 1
+
         nitem.product_code = nitem.item_id
-        
         nitem.data = data
- 
+        #pdb.set_trace() 
         # add to cart
         if nitem.item_id not in cart.keys():
             cart[nitem.item_id] = nitem
