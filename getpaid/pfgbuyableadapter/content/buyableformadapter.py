@@ -106,9 +106,9 @@ class BuyableFormAdapter(FormActionAdapter):
         nitem.cost = float(self.price)
 	nitem.quantity = 1
 
-	if quantity in data:	    
-	     nitem.quanity = int(data['quantity'])
-	else:
+	try:
+	     nitem.quantity = int(data['quantity'])
+	except:
 	     nitem.quantity = 1
 
         nitem.product_code = nitem.item_id
