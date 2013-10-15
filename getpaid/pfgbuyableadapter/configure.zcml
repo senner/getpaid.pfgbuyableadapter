@@ -22,7 +22,7 @@
   <!-- -*- extra stuff goes here -*- -->
   <subscriber
       for="getpaid.core.interfaces.IOrder
-           hurry.workflow.interfaces.IWorkflowTransitionEvent"
+           getpaid.hurry.workflow.interfaces.IWorkflowTransitionEvent"
 	  handler=".subscriber.handlePaymentReceived"
 	  />
 </configure>
